@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +14,7 @@
 					<!-- place header here --> 
             </header>       
       <div  class="registration">
-    		<form id="RegistrationForm"> 
+    		<form id="RegistrationForm" method="post" action="">
     			<p class="contact"><label for="name">First Name</label></p> 
     			<input id="name" name="name" placeholder="First Name" required="" tabindex="1" type="text"> 
 
@@ -37,15 +36,9 @@
                 <p class="contact"><label for="PostCode">PostCode</label></p> 
                 <input id="PostCode" name="PostCode" placeholder="PostCode" required="" tabindex="7" type="text"> 
     			 
-    			<p class="contact"><label for="email">Email</label></p> 
-    			<input id="email" name="email" placeholder="example@domain.com" required="" type="email"> 
+    		<p class="contact"><label for="email">Email</label></p> 
+    		<input id="email" name="email" placeholder="example@domain.com" required="" type="email"> 
         
-
-            	<select class="Profession" name="Profession">
-                <label for="Profession">Profession</label></p> 
-            	<option value="select">Patient</option>
-            	<option value="m">Medical Doctor</option>
-            	</select><br><br>
             
                 <p class="contact"><label for="phone">Mobile phone</label></p> 
                 <input id="phone" name="phone" placeholder="phone number" required="" type="text"> <br>
