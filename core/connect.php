@@ -6,7 +6,7 @@ $PARAM_user='root';
 $PARAM_password='root';
 try
 {
-   $stm = new PDO('mysql:host='.$PARAM_hote.';dbname='.$PARAM_db_name, $PARAM_user, $PARAM_password);
+   $connexion = new PDO('mysql:host='.$PARAM_hote.';dbname='.$PARAM_db_name, $PARAM_user, $PARAM_password);
 }
 catch(Exception $e)
 {

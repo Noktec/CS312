@@ -1,5 +1,3 @@
-include_once "core/connect.php"
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,27 +14,27 @@ include_once "core/connect.php"
 					<!-- place header here --> 
             </header>       
       <div  class="registration">
-    		<form id="RegistrationForm" method="post" action="">
+    		<form id="RegistrationForm" method="post" action="registrationProcess.php">
     			<p class="contact"><label for="name">First Name</label></p> 
     			<input id="name" name="name" placeholder="First Name" required="" tabindex="1" type="text"> 
 
-    			<p class="contact"><label for="FamilyName">Last Name</label></p> 
-    			<input id="FamilyName" name="FamilyName" placeholder="Last Name" required="" tabindex="2" type="text"> 
+    			<p class="contact"><label for="familyName">Last Name</label></p> 
+    			<input id="familyName" name="familyName" placeholder="Last Name" required="" tabindex="2" type="text"> 
 
     			<p class="contact"><label for="NINO">National Insurance Number</label></p> 
     			<input id="NIN" name="NIN" placeholder="NINO" required="" tabindex="3" type="text"> 
 
-                <p class="contact"><label for="Street">Street and Number</label></p> 
-                <input id="Street" name="Street" placeholder="Street and Number" required="" tabindex="4" type="text"> 
+                <p class="contact"><label for="street">Street and Number</label></p> 
+                <input id="street" name="street" placeholder="Street and Number" required="" tabindex="4" type="text"> 
 
-                <p class="contact"><label for="City">City</label></p> 
-                <input id="City" name="City" placeholder="City" required="" tabindex="5" type="text"> 
+                <p class="contact"><label for="city">City</label></p> 
+                <input id="city" name="city" placeholder="City" required="" tabindex="5" type="text"> 
 
-                <p class="contact"><label for="County">County</label></p> 
-                <input id="County" name="County" placeholder="County" required="" tabindex="6" type="text"> 
+                <p class="contact"><label for="county">County</label></p> 
+                <input id="county" name="county" placeholder="County" required="" tabindex="6" type="text"> 
 
                 <p class="contact"><label for="PostCode">PostCode</label></p> 
-                <input id="PostCode" name="PostCode" placeholder="PostCode" required="" tabindex="7" type="text"> 
+                <input id="postCode" name="postCode" placeholder="PostCode" required="" tabindex="7" type="text"> 
     			 
     		<p class="contact"><label for="email">Email</label></p> 
     		<input id="email" name="email" placeholder="example@domain.com" required="" type="email"> 
