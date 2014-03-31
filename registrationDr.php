@@ -1,3 +1,28 @@
+include_once "core/connect.php"
+
+<?php
+//this is the prepared statement used to avoid SQL Injections 
+//when we create a user into the database. 
+$stmt = $pdo->prepare('INSERT INTO patient(Patient_ID, FistName, LastName, NINO, Email, Password, Phone, Street, City, County, PostCode ) 
+VALUES(:Patient_ID, :FistName, :LastName, :NINO, :Email, :Password, :Phone, :Street, :City, :County, :PostCode)');
+
+$stmt->bindParam('Patient_ID', $Patient_ID, PDO::PARAM_INT);
+$stmt->bindParam('FirstName', $FirstName, PDO::PARAM_STR);
+$stmt->bindParam('LasttName', $LastName, PDO::PARAM_STR);
+$stmt->bindParam('NINO', $NINO, PDO::PARAM_STR);
+$stmt->bindParam('Email', $Email, PDO::PARAM_STR);
+$stmt->bindParam('Password', $Password, PDO::PARAM_STR);
+$stmt->bindParam('Phone', $Phone, PDO::PARAM_STR);
+$stmt->bindParam('Street', $Street, PDO::PARAM_STR);
+$stmt->bindParam('City', $City, PDO::PARAM_STR);
+$stmt->bindParam('County', $County, PDO::PARAM_STR);
+$stmt->bindParam('PostCode', $PostCode, PDO::PARAM_STR);
+
+$stmt->execute();
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

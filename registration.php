@@ -1,3 +1,5 @@
+include_once "core/connect.php"
+
 <!DOCTYPE html>
 <html>
 <head>
