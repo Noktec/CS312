@@ -5,6 +5,10 @@ SET time_zone = "+00:00";
 -- Database: `cs312`
 --
 
+---
+--- Auto_increment, startID to avoid sql injection to check ID=1 for Admin
+---
+
 -- --------------------------------------------------------
 
 --
@@ -19,7 +23,7 @@ CREATE TABLE `doctors` (
   `Practice_ID` int(10) NOT NULL,
   PRIMARY KEY (`Doctor_ID`),
   KEY `Practice_ID` (`Practice_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 -- --------------------------------------------------------
 
@@ -54,7 +58,7 @@ CREATE TABLE `patients` (
   `County` varchar(50) NOT NULL,
   `PostCode` varchar(6) NOT NULL,
   PRIMARY KEY (`Patient_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `patients`
@@ -80,7 +84,7 @@ CREATE TABLE `practices` (
   `PhoneNumber` varchar(15) NOT NULL,
   `OpeningHours` varchar(100) NOT NULL,
   PRIMARY KEY (`Practice_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Constraints for dumped tables
