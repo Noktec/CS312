@@ -1,3 +1,5 @@
+/*This is the layout of the registration
+formst*/
 .registration{
 	background:#f1f1f1; width:470px; margin:0 auto; padding-left:50px; padding-top:20px;
 }
@@ -21,3 +23,11 @@
   padding-bottom: 5px;
   text-overflow: ellipsis;
   white-space: nowrap;}
+/*This is used for the invalid passwords
+and based on html5*/
+input:invalid {
+    border: 1px solid red;
+}
+input:valid {
+  border: 1px solid green;
+}
