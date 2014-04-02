@@ -22,7 +22,7 @@ CREATE TABLE `doctors` (
   `Speciality` varchar(50) NOT NULL,
   `Practice_ID` int(10) NOT NULL,
   `PhoneNumber` varchar(15) NOT NULL,
-  `Password` varchar(50) NOT NULL,
+  `Password` varchar(129) NOT NULL,
   `Email` varchar(50) NOT NULL,
   PRIMARY KEY (`Doctor_ID`),
   KEY `Practice_ID` (`Practice_ID`)
@@ -54,7 +54,7 @@ CREATE TABLE `patients` (
   `LastName` varchar(25) NOT NULL,
   `NINO` varchar(9) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Password` varchar(50) NOT NULL,
+  `Password` varchar(129) NOT NULL,
   `Phone` varchar(25) NOT NULL,
   `Street` varchar(50) NOT NULL,
   `City` varchar(50) NOT NULL,
