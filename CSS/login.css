@@ -1,0 +1,43 @@
+h2 {
+	color: rgb(34,34,34);
+	font-size: 2.2em;	
+	font-weight: 200;
+	margin: 0 0 24px 0;
+}
+section#login {
+	background-color: rgb(255,255,255);
+	border: 1px solid rgba(0,0,0,.15);
+	border-radius: 4px;
+	box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 0 4px rgba(0,0,0,0.2);
+	margin: 40px auto; /*aligns center*/
+	padding: 24px;
+	width: 500px;
+}
+
+.container input[type="text"] { width: 150px; }
+.container input[type="email"] { width: 150px; }
+.container input[type="password"] { width: 150px; }
+.container label { color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica; }
+.container input, textarea { background-color: rgba(255, 255, 255, 0.4); border: 1px solid rgba(122, 192, 0, 0.15); padding: 7px; font-family: Keffeesatz, Arial; color: #4b4b4b; font-size: 14px; -webkit-border-radius: 5px; margin-bottom: 15px; margin-top: -10px; }
+.container input:focus, textarea:focus { border: 1px solid #ff5400; background-color: rgba(255, 255, 255, 1); }
+.container .select-style {
+  border: 0px solid #FFF;
+  color: #555;
+  font-size: inherit;
+  margin: 0;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;}
+
+
+input:invalid {
+    border: 1px solid red;
+}
+input:valid {
+  border: 1px solid green;
+}
+input:required {
+  border: 1px solid red;
+}

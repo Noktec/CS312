@@ -10,7 +10,7 @@ return $hash;
 
 if (isset($_POST['submit'])) {
 
-
+    try {
         $stmt = $connexion->prepare('INSERT INTO doctors(
             Name, 
             Surname, 
@@ -36,7 +36,13 @@ if (isset($_POST['submit'])) {
         $stmt->bindParam(':Password',   $password,              PDO::PARAM_STR);
         $stmt->bindParam(':Email',      $_POST['email'],        PDO::PARAM_STR);
         $stmt->execute();
-        print_r($stmt->errorInfo()); 
-
+        } 
+    catch (PDOException $ex) {
+        #These are simple debug info
+        $msg = $ex->errorInfo;
+        error_log(var_export($msg, true));
+        die("<p>Sorry, there was an unrecoverable database error. Debug data has been logged.</p>");
+        #print_r($stmt->errorInfo());
+    };
 }
 ?>

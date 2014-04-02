@@ -31,3 +31,14 @@ input:invalid {
 input:valid {
   border: 1px solid green;
 }
+input:required {
+  border: 1px solid red;
+}
+
+/*Nice font*/ 
+h2 {
+  color: rgb(34,34,34);
+  font-size: 2.2em; 
+  font-weight: 200;
+  margin: 0 0 24px 0;
+}
