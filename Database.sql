@@ -62,12 +62,6 @@ CREATE TABLE `patients` (
   PRIMARY KEY (`Patient_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
---
--- Dumping data for table `patients`
---
-
-INSERT INTO `patients` (`Patient_ID`, `FirstName`, `LastName`, `NINO`, `Email`, `Password`, `Phone`, `Street`, `City`, `County`, `PostCode`) VALUES
-(10, '0', '0', '0', '0', '0', '0', '0', '0', '0', '');
 
 -- --------------------------------------------------------
 
