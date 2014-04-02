@@ -19,7 +19,7 @@ CREATE TABLE `doctors` (
   `Doctor_ID` int(10) NOT NULL AUTO_INCREMENT,
   `Name` varchar(25) NOT NULL,
   `Surname` varchar(25) NOT NULL,
-  `Specialisation` varchar(50) NOT NULL,
+  `Speciality` varchar(50) NOT NULL,
   `Practice_ID` int(10) NOT NULL,
   `Password` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
