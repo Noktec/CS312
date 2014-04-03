@@ -8,11 +8,13 @@ $hash = hash('sha512', $password);
 return $hash;
 }
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit'])){
 
 	//we hash the password first.
-	$password_retrieve = hashPassword($_POST['password']);
+	$password= $_POST['password'];
 	$email = $_POST['email'];
+
+	$password_retrieve = hashPassword($password);
 
 	//we look up the ID of the corresponding user. 
 	$stmt = $connexion->prepare('SELECT Patient_ID FROM patients WHERE Email = :Email AND Password = :Password');
@@ -34,7 +36,6 @@ if (isset($_POST['submit'])) {
    		$_SESSION['email'] = $email;
     	header("location: main.php");
 	}
-
 
 }
 ?>

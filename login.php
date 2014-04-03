@@ -32,7 +32,7 @@ if(isset($_GET['error']))
                 <input id="email" name="email" placeholder="example@domain.com" required="" type="email"> 
             </div>
             <div>
-                <input type="password" placeholder="Password" required="" id="password" />
+                <input type="password" placeholder="password" required="" id="password" name="password" />
             </div>
             <div>
                 <input class="buttom" name="submit" id="submit" tabindex="5" value="Log in" type="submit">   
