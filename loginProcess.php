@@ -14,6 +14,7 @@ if (isset($_POST['submit'])) {
 	$password_retrieve = hashPassword($_POST['password']);
 	$email = $_POST['email'];
 
+	//we look up the ID of the corresponding user. 
 	$stmt = $connexion->prepare('SELECT Patient_ID FROM patients WHERE Email = :Email AND Password = :Password');
 
 	$stmt->bindParam(':Email',	  $email, 				PDO::PARAM_STR);
@@ -21,16 +22,17 @@ if (isset($_POST['submit'])) {
     $stmt->execute();
 	$results = $stmt->fetch();
 	
+	//if not found we send the user back to a login page.
 	if(!$results) {
 		header("location: login.php?error");
 	}
 	else
 	{
+		//we start the session.
 		session_start();
    		$_SESSION['id'] = $results['Patient_ID'];
    		$_SESSION['email'] = $email;
-    	header("location: login.php?sucess");
-    
+    	header("location: main.php");
 	}
 
 
