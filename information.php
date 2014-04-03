@@ -32,6 +32,27 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
  	<script LANGUAGE="JavaScript" src="js/script.js"></script>
 
+ 	<script type="text/javascript">
+	function lookup(inputString) {
+		if(inputString.length == 0) {
+			// Hide the suggestion box.
+			$('#suggestions').hide();
+		} else {
+			$.post("rpc.php", {queryString: ""+inputString+""}, function(data){
+				if(data.length >0) {
+					$('#suggestions').show();
+					$('#autoSuggestionsList').html(data);
+				}
+			});
+		}
+	} // lookup
+	
+	function fill(thisValue) {
+		$('#inputString').val(thisValue);
+		setTimeout("$('#suggestions').hide();", 200);
+	}
+</script>
+
 </head>
 <body>
 <div class="container">
@@ -51,7 +72,18 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
 
     			<p class="FamilyDr"><label for="FDR"> Family Doctor</label></p>
 				<input type="text"  name="FDR "id="FDR" tabindex="0" required="" >
-		        <div id="ajax_response"></div>
+
+				<div>
+				Type your county:
+					<input type="text" size="30" value="" id="inputString" onkeyup="lookup(this.value);" onblur="fill();" />
+				</div>
+			
+				<div class="suggestionsBox" id="suggestions" style="display: none;">
+				<div class="suggestionList" id="autoSuggestionsList">
+					&nbsp;
+				</div>
+				</div>
+		      
 
                 <p class="contact"><label for="street">Street and Number</label></p> 
                 <input id="street" name="street" placeholder="Street and Number" required="" tabindex="4" type="text"> 
