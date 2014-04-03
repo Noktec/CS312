@@ -1,13 +1,14 @@
 <?php
 include_once "core/connect.php";	
 
-		// Is there a posted query string?
+	//This look up the name of your Doctor
 	if(isset($_POST['queryString'])) {
 		
 		$queryString = $_POST['queryString'];
 						
 		if(strlen($queryString) >0) {
 	
+			//this part prepare the SQL
 			$stmt = $connexion->prepare('SELECT Surname FROM doctors WHERE Surname LIKE :queryString LIMIT 0,10');
 			$query = $stmt->execute(array(':queryString' => $queryString . '%'));
 
@@ -19,15 +20,15 @@ include_once "core/connect.php";
 			}
 			else
 			{
-				echo 'ERROR: There was a problem with the query.';
+				echo 'Error : Contact your administration';
 			}
 		} 
 		else{
-				// Dont do anything.
-		} // There is a queryString.
+		//this is the blank part
+		} 
 	}
 	else{
-		echo 'There should be no direct access to this script!';
+		header("location: login.php");
 	}
 	
 ?>

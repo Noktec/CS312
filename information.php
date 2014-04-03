@@ -28,30 +28,9 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-	<link rel="stylesheet" type="text/css" href="CSS/registration.css" media="all" />	
- 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
- 	<script LANGUAGE="JavaScript" src="js/script.js"></script>
-
- 	<script type="text/javascript">
-	function lookup(inputString) {
-		if(inputString.length == 0) {
-			// Hide the suggestion box.
-			$('#suggestions').hide();
-		} else {
-			$.post("rpc.php", {queryString: ""+inputString+""}, function(data){
-				if(data.length >0) {
-					$('#suggestions').show();
-					$('#autoSuggestionsList').html(data);
-				}
-			});
-		}
-	} // lookup
-	
-	function fill(thisValue) {
-		$('#inputString').val(thisValue);
-		setTimeout("$('#suggestions').hide();", 200);
-	}
-</script>
+	<link rel="stylesheet" type="text/css" href="CSS/fetch.css" media="all" />		
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+ 	<script type="text/javascript" src="JS/suggestion.js"></script> 
 
 </head>
 <body>
@@ -70,16 +49,12 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
     			<p class="contact"><label for="NINO">National Insurance Number</label></p> 
     			<input id="NIN" name="NIN" placeholder="NINO" required="" tabindex="3" type="text"> 
 
-    			<p class="FamilyDr"><label for="FDR"> Family Doctor</label></p>
-				<input type="text"  name="FDR "id="FDR" tabindex="0" required="" >
+    			
 
-				<div>
-				Type your county:
-					<input type="text" size="30" value="" id="inputString" onkeyup="lookup(this.value);" onblur="fill();" />
-				</div>
-			
-				<div class="suggestionsBox" id="suggestions" style="display: none;">
-				<div class="suggestionList" id="autoSuggestionsList">
+				<p class="FDR"><label for="FDR"> Family Doctor</label></p>
+				<input type="text" name="FDR"  size="30" value="" id="FDR"  onkeyup="lookup(this.value);" onblur="fill();" />
+				<div class="lookupBox" id="lookup" style="display: none;">
+				<div class="list" id="autoList">
 					&nbsp;
 				</div>
 				</div>
@@ -111,16 +86,14 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
 
                 <span id="passwordValidity" class="passwordValidity"></br></span>
                 
-                <input class="buttom" name="submit" id="submit" tabindex="5" value="Sign me up" type="submit"> 	 
+                <input class="buttom" name="update" id="update" tabindex="5" value="Update"  style="width:200px"  type="submit"> 	 
    		</form> 
                         
 
 	</div>      
 </div>
 </body> 
-
 </html>
-
 
 <?php    
 }
