@@ -13,6 +13,16 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
 	$stmt->bindParam(':Patient_ID',	  $id, 	PDO::PARAM_INT);
     $stmt->execute();
 	$results = $stmt->fetch();
+	$FirstName = $results['FirstName'];
+    $LastName = $results['LastName'];
+    $NINO = $results['NINO'];
+    $Email= $results['Email'];
+    $Phone= $results['Phone'];
+    $Street = $results['Street'];
+    $City = $results['City'];
+    $County = $results['County'];
+    $PostCode= $results['PostCode'];
+
 
 ?>
 
@@ -41,52 +51,51 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
       <div  class="update">
     		<form name="update" id="update" method="post" action="updateProfile.php">
     			<p class="contact"><label for="name">First Name</label></p> 
-    			<input id="name" name="name" placeholder="First Name" required="" tabindex="1" type="text"> 
+    			<input id="name" name="name" value="<?php echo $FirstName; ?>" required="" tabindex="1" type="text"></input>
 
     			<p class="contact"><label for="familyName">Last Name</label></p> 
-    			<input id="familyName" name="familyName" placeholder="Last Name" required="" tabindex="2" type="text"> 
+    			<input id="familyName" name="familyName" value="<?php echo $LastName; ?>" required="" tabindex="2" type="text"> 
 
     			<p class="contact"><label for="NINO">National Insurance Number</label></p> 
-    			<input id="NIN" name="NIN" placeholder="NINO" required="" tabindex="3" type="text"> 
-
-    			
+    			<input id="NIN" name="NIN" value="<?php echo $NINO; ?>"required="required" tabindex="3" type="text" pattern="^\s*([a-zA-Z]){2}\s*([0-9]){1}\s*([0-9]){1}\s*([0-9]){1}\s*([0-9]){1}\s*([0-9]){1}\s*([0-9]){1}\s*([a-zA-Z]){1}?$" > 
+    			<!-- nino regular expression -->
 
 				<p class="FDR"><label for="FDR"> Family Doctor</label></p>
-				<input type="text" name="FDR"  size="30" value="" id="FDR"  onkeyup="lookup(this.value);" onblur="fill();" />
+				<input type="text" name="FDR"  size="30" value="" id="FDR" tabindex="4" required=""  onkeyup="lookup(this.value);" onblur="fill();" />
 				<div class="lookupBox" id="lookup" style="display: none;">
 				<div class="list" id="autoList">
 					&nbsp;
 				</div>
 				</div>
 		      
-
                 <p class="contact"><label for="street">Street and Number</label></p> 
-                <input id="street" name="street" placeholder="Street and Number" required="" tabindex="4" type="text"> 
+                <input id="street" name="street" value="<?php echo $Street; ?>" required="" tabindex="5" type="text"> 
 
                 <p class="contact"><label for="city">City</label></p> 
-                <input id="city" name="city" placeholder="City" required="" tabindex="5" type="text"> 
+                <input id="city" name="city" value="<?php echo $City; ?>" required="" tabindex="6" type="text"> 
 
                 <p class="contact"><label for="county">County</label></p> 
-                <input id="county" name="county" placeholder="County" required="" tabindex="6" type="text"> 
+                <input id="county" name="county" value="<?php echo $County; ?>"required="" tabindex="7" type="text"> 
 
                 <p class="contact"><label for="PostCode">PostCode</label></p> 
-                <input id="postCode" name="postCode" placeholder="PostCode" required="" tabindex="7" type="text"> 
-    			 
+                <input id="postCode" name="postCode" value="<?php echo $PostCode; ?>" required="" tabindex="8" type="text" pattern="^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$"> 
+    			<!-- UK post code regular expression provided by https://www.gov.uk/ --> 
+
     		    <p class="contact"><label for="email">Email</label></p> 
-    	       	<input id="email" name="email" placeholder="example@domain.com" required="" type="email"> 
+    	       	<input id="email" name="email" value="<?php echo $Email; ?>" tabindex="9" required="" type="email"> 
         
                 <p class="contact"><label for="phone">Mobile phone</label></p> 
-                <input id="phone" name="phone" placeholder="phone number" required="" type="text"> <br>
+                <input id="phone" name="phone" value="<?php echo $Phone; ?>" required=""  tabindex="10"type="text"> <br>
 
                 <p class="contact"><label for="password">Create a password</label></p> 
-                <input type="password" id="password" name="password" required=""> 
+                <input type="password" id="password" name="password"  tabindex="11"> 
 
                 <p class="contact"><label for="repassword">Confirm your password</label></p> 
-                <input type="password" id="repassword" name="repassword" required="" oninput="check(this)"> 
+                <input type="password" id="repassword" name="repassword" tabindex="12"  oninput="check(this)"> 
 
                 <span id="passwordValidity" class="passwordValidity"></br></span>
                 
-                <input class="buttom" name="update" id="update" tabindex="5" value="Update"  style="width:200px"  type="submit"> 	 
+                <input class="buttom" name="update" id="update" tabindex="13" value="Update"  style="width:200px"  type="submit"> 	 
    		</form> 
                         
 
