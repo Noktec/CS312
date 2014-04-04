@@ -29,8 +29,9 @@
     			<p class="contact"><label for="familyName">Last Name</label></p> 
     			<input id="familyName" name="familyName" placeholder="Last Name" required="" tabindex="2" type="text"> 
 
-    			<p class="contact"><label for="NINO">National Insurance Number</label></p> 
-    			<input id="NIN" name="NIN" placeholder="NINO" required="" tabindex="3" type="text"> 
+                <p class="contact"><label for="NINO">National Insurance Number</label></p> 
+                <input id="NIN" name="NIN" value="<?php echo $NINO; ?>"required="required" tabindex="3" type="text" pattern="^\s*([a-zA-Z]){2}\s*([0-9]){1}\s*([0-9]){1}\s*([0-9]){1}\s*([0-9]){1}\s*([0-9]){1}\s*([0-9]){1}\s*([a-zA-Z]){1}?$" > 
+                <!-- nino regular expression -->
 
                 <p class="contact"><label for="street">Street and Number</label></p> 
                 <input id="street" name="street" placeholder="Street and Number" required="" tabindex="4" type="text"> 
@@ -42,7 +43,8 @@
                 <input id="county" name="county" placeholder="County" required="" tabindex="6" type="text"> 
 
                 <p class="contact"><label for="PostCode">PostCode</label></p> 
-                <input id="postCode" name="postCode" placeholder="PostCode" required="" tabindex="7" type="text"> 
+                <input id="postCode" name="postCode" value="<?php echo $PostCode; ?>" required="" tabindex="8" type="text" pattern="^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$"> 
+                <!-- UK post code regular expression provided by https://www.gov.uk/ --> 
     			 
     		    <p class="contact"><label for="email">Email</label></p> 
     	       	<input id="email" name="email" placeholder="example@domain.com" required="" type="email"> 
