@@ -19,6 +19,7 @@
 			<header>
 					<!-- place header here --> 
             </header>       
+            <!--  Note that in html5 you do not need to close </input> -->
       <div  class="registration">
     		<form name="registrationForm" id="registrationForm" method="post" action="registrationProcessDr.php">
     			<p class="contact"><label for="name">First Name</label></p> 
@@ -42,7 +43,7 @@
                 <p class="contact"><label for="repassword">Confirm your password</label></p> 
                 <input type="password" id="repassword" name="repassword" required="" oninput="check(this)"> 
 
-                <span id="passwordValidity" class="passwordValidity"></br></span>
+                <span id="passwordValidity" class="passwordValidity"><br></span>
 
             
             <input class="buttom" name="submit" id="submit" tabindex="5" value="Sign me up" type="submit"> 	 
