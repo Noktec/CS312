@@ -23,6 +23,7 @@ formst*/
   padding-bottom: 5px;
   text-overflow: ellipsis;
   white-space: nowrap;}
+  
 /*This is used for the invalid passwords
 and based on html5*/
 input:invalid {
