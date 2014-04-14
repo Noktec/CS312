@@ -12,7 +12,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 	<link rel="stylesheet" type="text/css" href="CSS/registration.css" media="all" />
     <script type="text/javascript" SRC="JS/verifpassword.js"></script> 
-
 </head>
 <body>
 <div class="container">

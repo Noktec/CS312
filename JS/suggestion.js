@@ -9,6 +9,7 @@ function lookup(inputString) {
 				$('#autoList').html(data);
 			}
 		});
+		
 	}
 }
 function fill(thisValue) {

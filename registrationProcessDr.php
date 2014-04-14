@@ -9,7 +9,6 @@ return $hash;
 }
 
 if (isset($_POST['submit'])) {
-
     try {
         $stmt = $connexion->prepare('INSERT INTO doctors(
             Name, 
@@ -25,6 +24,7 @@ if (isset($_POST['submit'])) {
             :PhoneNumber, 
             :Password,
             :Email)');
+
 
         //we hash the password first.
         $password = hashPassword($_POST['password']);

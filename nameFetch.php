@@ -31,4 +31,5 @@ include_once "core/connect.php";
 		header("location: login.php");
 	}
 	
+	
 ?>

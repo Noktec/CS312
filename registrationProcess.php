@@ -10,7 +10,6 @@ return $hash;
 
 if (isset($_POST['submit'])) {
 
-
     try {
         $stmt = $connexion->prepare('INSERT INTO patients(
             FirstName, 
