@@ -49,8 +49,6 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
     <title>Profile</title>
 
     <link rel="stylesheet" type="text/css" href="CSS/fetch.css" media="all" />      
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script type="text/javascript" src="JS/suggestion.js"></script> 
     <link href="CSS/bootstrap-mini.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet"  href="CSS/registration.css" media="all" />
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -123,6 +121,7 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="JS/bootstrap.min.js"></script>
+    <script type="text/javascript" src="JS/suggestion.js"></script> 
     <!--include the header-->
     <script> 
         $(function(){
