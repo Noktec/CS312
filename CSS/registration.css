@@ -1,7 +1,7 @@
 /*This is the layout of the registration
 formst*/
 .registration{
-	background:#f1f1f1; width:470px; margin:0 auto; padding-left:50px; padding-top:20px;
+	background:#f1f1f1; width:470px; margin:0 auto; padding-left:50px; padding-top:75px;
 }
 .registration fieldset{border:0px; padding:0px; margin:0px;}
 .registration p.contact { font-size: 12px; margin:0px 0px 10px 0;line-height: 14px; font-family:Arial, Helvetica;}
@@ -24,8 +24,8 @@ formst*/
   text-overflow: ellipsis;
   white-space: nowrap;}
   
-/*This is used for the invalid passwords
-and based on html5*/
+/*This is used for the invalid fields */
+
 input:invalid {
     border: 1px solid red;
 }
@@ -33,8 +33,9 @@ input:valid {
   border: 1px solid green;
 }
 input:required {
-  border: 1px solid red;
+  
 }
+
 
 /*Nice font*/ 
 h2 {

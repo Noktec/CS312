@@ -1,26 +1,35 @@
+
 <!DOCTYPE html>
-<html>
-<!--[if lt IE 7 ]> <html lang="en" class="ie6 ielt8"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="ie7 ielt8"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
-<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
-<head>
-<title>Registration</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-	<link rel="stylesheet" type="text/css" href="CSS/registration.css" media="all" />
-    <script type="text/javascript" SRC="JS/verifpassword.js"></script> 
-</head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Registration</title>
+
+    <link href="CSS/bootstrap-mini.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet"  href="CSS/registration.css" media="all" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
 <body>
+
+
 <div class="container">
-			<header>
-					<!-- place header here --> 
-            </header>       
+
+    <!--includes the menu-->
+    <div id="header"></div>
+
+       
             <!--  Note that in html5 you do not need to close </input> -->
-      <div  class="registration">
-    		<form name="registrationForm" id="registrationForm" method="post" action="registrationProcessDr.php">
+                <div  class="registration">
+    		    <form name="registrationForm" id="registrationForm" method="post" action="registrationProcessDr.php">
     			<p class="contact"><label for="name">First Name</label></p> 
     			<input id="name" name="name" placeholder="First Name" required="" tabindex="1" type="text"> 
 
@@ -49,5 +58,20 @@
    		</form> 
 	</div>      
 </div>
-</body>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="JS/bootstrap.min.js"></script>
+    <!--include the header-->
+    <script> 
+        $(function(){
+        $("#header").load("header.html"); 
+        });
+    </script> 
+    <!-- verify the password -->
+    <script type="text/javascript" SRC="JS/verifpassword.js"></script> 
+  </body>
 </html>
