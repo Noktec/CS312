@@ -1,4 +1,12 @@
 <?php
+/*
+Information on the PHP Document :
+
+This document makes the request to the
+MySQL database to retrieve the name of
+the doctor.  
+*/
+
 include_once "core/connect.php";	
 
 	//This look up the name of your Doctor
@@ -33,3 +41,5 @@ include_once "core/connect.php";
 	
 	
 ?>
+
+

@@ -1,4 +1,13 @@
 <?php
+
+/*
+Information on the PHP Document :
+
+This document creates one new doctor
+in the table doctors and his called
+by the file `registrationDr.php`
+*/
+
 include_once "core/connect.php";
 
 //I do not salt the password though 

@@ -1,4 +1,12 @@
 <?php
+/*
+Information on the PHP Document :
+
+This document log the patients to his 
+main profile page. Verifying his password
+and creating the sessions.  
+*/
+
 include_once "core/connect.php";
 
 //I do not salt the password though 

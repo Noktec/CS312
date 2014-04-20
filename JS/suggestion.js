@@ -1,3 +1,11 @@
+/*
+Information on the JS Document :
+
+This document helps fetching the typed
+letters to make an accurate query and
+suggest a doctor to the patient. 
+*/
+
 function lookup(inputString) {
 	if(inputString.length == 0) {
 

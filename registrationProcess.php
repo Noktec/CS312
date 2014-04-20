@@ -1,4 +1,13 @@
 <?php
+/*
+Information on the PHP Document :
+
+This document creates one new patient
+in the table patients and his called
+by the file `registration.php`
+
+*/
+
 include_once "core/connect.php";
 
 //I do not salt the password though 
