@@ -10,8 +10,32 @@ on the doctors, and appointments.
 include_once "core/connect.php";
 
 session_start();
+	
+	
+	
+function getRegistered(){
 
+	$id=$_SESSION['id'];
+	$connexion = getConnexion();
+	$stmt = $connexion->prepare('SELECT * FROM Appointments WHERE Patient_ID = :Patient_ID AND free = 1');
+	$stmt->bindParam(':Patient_ID',    $id,  PDO::PARAM_INT);
+	$stmt->execute();
+    $results = $stmt->fetchAll();
 
+    if($results){
+		 	
+		foreach ($results as $row) {
+		//append text to the variable
+		echo "<tr><td>".$row['Appointment_ID']."<td>".$FamilyDoctor."<td>".$row['date']."<td>".$row['hours']."<td>";    
+		} 
+			
+	}
+	else{
+ 		 echo "<tr><td><td>You do not have any Appointments<td><td><td>";
+	}	
+
+	
+}
 
 //this function gets back all the available appointments of this Dr. 
 function getAppointments($doctor_ID, $FamilyDoctor){
@@ -100,7 +124,7 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
 
 
 	<table class="cornered generic">
-		<caption>Registered Appointments</caption>
+		<caption>Book Your Appointment</caption>
 		<thead>
 			<tr><th>Id<th>Doctor<th>Date<th>Time<th>Book
 		</thead>
@@ -111,14 +135,10 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
 	<table class="cornered generic">
 		<caption>Registered Appointments</caption>
 		<thead>
-			<tr><th>Id<th>Doctors<th>Date
+			<tr><th>Id<th><th>Date<th>Time<th>
 		</thead>
 		<tbody>
-			<tr><td>1<td>Citizen Kane<td>1941
-			<tr><td>2<td>The Godfather<td>1972
-			<tr><td>3<td>Casablanca<td>1942
-			<tr><td>4<td>Raging Bull<td>1980
-			<tr><td>5<td>Singin’ In The Rain<td>1952
+			<?php getRegistered(); ?>
 			
 	</table>
     
