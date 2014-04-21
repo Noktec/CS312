@@ -11,8 +11,9 @@ include_once "core/connect.php";
 
 session_start();
 	
+
 	
-	
+//this function displays the Appointments for which the User is Registered / booked. 	
 function getRegistered(){
 
 	$id=$_SESSION['id'];
@@ -26,7 +27,7 @@ function getRegistered(){
 		 	
 		foreach ($results as $row) {
 		//append text to the variable
-		echo "<tr><td>".$row['Appointment_ID']."<td>".$FamilyDoctor."<td>".$row['date']."<td>".$row['hours']."<td>";    
+		echo "<tr><td>".$row['Appointment_ID']."<td><td>".$row['date']."<td>".$row['hours']."<td>";    
 		} 
 			
 	}
@@ -49,7 +50,10 @@ function getAppointments($doctor_ID, $FamilyDoctor){
 	
 	foreach ($results as $row) {
 		//append text to the variable
-		echo "<tr><td>".$row['Appointment_ID']."<td>".$FamilyDoctor."<td>".$row['date']."<td>".$row['hours']."<td>";    
+
+		$book = '<input id="'.$row['Appointment_ID'].'" type="button" value="Book" onclick="myCall('.$row['Appointment_ID'].')" />';
+
+		echo "<tr><td>".$row['Appointment_ID']."<td>".$FamilyDoctor."<td>".$row['date']."<td>".$row['hours']."<td>".$book."<td><td>";    
 	}    
     
 
@@ -108,6 +112,8 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
         <!-- Bootstrap core CSS -->
     <link href="CSS/bootstrap-mini.css" rel="stylesheet" type="text/css" media="all"/>
     <link rel="stylesheet" type="text/css" href="CSS/tables.css" media="all" />
+    <!-- Ajax Call to book an appointment -->
+    <script type="text/javascript" SRC="JS/book.js"></script> 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -126,7 +132,7 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
 	<table class="cornered generic">
 		<caption>Book Your Appointment</caption>
 		<thead>
-			<tr><th>Id<th>Doctor<th>Date<th>Time<th>Book
+			<tr><th>Id<th>Doctor<th>Date<th>Time<th>Book<th><th>
 		</thead>
 		<tbody>
 			 <?php getDr(); ?>
@@ -157,8 +163,6 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
         $("#header").load("mainheader.html"); 
         });
     </script> 
-    <!-- verify the password -->
-    <script type="text/javascript" SRC="JS/verifpassword.js"></script> 
   </body>
 </html>
 
