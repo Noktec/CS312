@@ -53,7 +53,7 @@ It contains the main login form.
             </div>
             <div>
                 <input class="buttom" name="submit" id="submit" tabindex="5" value="Log in" type="submit">   
-                <a href="#">Lost password</a>
+                <a href="./forgotenPassword.php">Lost password</a>
                 <a href="./registration.php">Register</a>
             </div>
         </form>

@@ -22,6 +22,7 @@ the administrators in case of problem.
     $body = "From: $name $surname\n E-Mail: $email\n Message:\n $message";
 
      if ($_POST['submit'] && $verif == '2') {                
+        //send the email.
         if (mail ($to, $subject, $body, $email)) { 
         //redirect to the contact page, and apply the success message.
         header("location: ./contact.php?success");
