@@ -83,7 +83,7 @@ if(isset($_POST['submit'])){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Forgoten Password</title>
+    <title>Forgotten Password</title>
 
         <!-- Bootstrap core CSS -->
     <link href="CSS/bootstrap-mini.css" rel="stylesheet" type="text/css" media="all"/>
@@ -102,8 +102,8 @@ if(isset($_POST['submit'])){
 
 <div class="container">
     <section id="Fpassword">
-        <form name="forgoten" id="forgoten" method="post" action="forgotenPassword.php">
-            <h1>Forgoten Password</h1>
+        <form name="forgotten" id="forgotten" method="post" action="forgotenPassword.php">
+            <h1>Forgotten Password</h1>
             <div>
                 <input id="email" name="email" placeholder="example@domain.com" required="" type="email"> 
             </div>
