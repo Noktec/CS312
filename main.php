@@ -8,11 +8,65 @@ on the doctors, and appointments.
 */
 
 include_once "core/connect.php";
+
 session_start();
+
+
+
+//this function gets back all the available appointments of this Dr. 
+function getAppointments($doctor_ID, $FamilyDoctor){
+	$connexion = getConnexion();
+	//we get all the appointments associated to that Dr.
+	$stmt = $connexion->prepare('SELECT * FROM Appointments WHERE Doctor_ID = :Doctor_ID AND free = 0');
+	$stmt->bindParam(':Doctor_ID',    $doctor_ID,  PDO::PARAM_INT);
+    $stmt->execute();
+    $results = $stmt->fetchAll();
+   // $rows =$stmt->rowCount();
+	
+	foreach ($results as $row) {
+		//append text to the variable
+		echo "<tr><td>".$row['Appointment_ID']."<td>".$FamilyDoctor."<td>".$row['date']."<td>".$row['hours']."<td>";    
+	}    
+    
+
+}
+
+//this function gets back the name of the doctor.
+function getDrName($doctor_ID){
+		$connexion = getConnexion();
+	 	$stmt = $connexion->prepare('SELECT Name FROM doctors WHERE Doctor_ID = :Doctor_ID');
+        $stmt->bindParam(':Doctor_ID',    $doctor_ID,  PDO::PARAM_INT);
+        $stmt->execute();
+        $results = $stmt->fetch();
+        $FamilyDoctor = $results['Name'];
+        return $FamilyDoctor; 
+}
+
+//this function returns the doctor associated with the patient.
+function getDR(){
+		$id=$_SESSION['id'];
+		
+		//we get the connexion first from core/connect.php and extend our DB connexion scope.
+		$connexion = getConnexion();
+		$stmt = $connexion->prepare('SELECT doctors_Doctor_ID FROM doctors_has_patients WHERE patients_Patient_ID = :ID');
+		$stmt->bindParam(':ID',	  $id, 	PDO::PARAM_INT);
+	    $stmt->execute();
+		$results = $stmt->fetch();
+		$doctor_ID = $results['doctors_Doctor_ID'];
+
+		if($results){
+		 	$FamilyDoctor  = getDrName($doctor_ID);
+			getAppointments($doctor_ID, $FamilyDoctor);
+			
+		}
+		else{
+ 		 	echo "<tr><td><td>Please edit your profile and add your family doctor.<td><td><td>";
+		}	
+}
 
 if (isset($_SESSION['id']) AND isset($_SESSION['email']))
 {
-    echo 'Hi ' . $_SESSION['email'];
+    
 ?>
 
 
@@ -48,16 +102,11 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
 	<table class="cornered generic">
 		<caption>Registered Appointments</caption>
 		<thead>
-			<tr><th>Id<th>Doctors<th>Date
+			<tr><th>Id<th>Doctor<th>Date<th>Time<th>Book
 		</thead>
 		<tbody>
-			<tr><td>1<td>Citizen Kane<td>1941
-			<tr><td>2<td>The Godfather<td>1972
-			<tr><td>3<td>Casablanca<td>1942
-			<tr><td>4<td>Raging Bull<td>1980
-			<tr><td>5<td>Singin’ In The Rain<td>1952
-
-	</table>
+			 <?php getDr(); ?>
+		</table>
 
 	<table class="cornered generic">
 		<caption>Registered Appointments</caption>
