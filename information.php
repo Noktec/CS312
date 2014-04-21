@@ -32,6 +32,26 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
     $County = $results['County'];
     $PostCode= $results['PostCode'];
 
+    
+
+    $stmt2 = $connexion->prepare('SELECT * FROM doctors_has_patients WHERE patients_Patient_ID = :Patient_ID');
+    $stmt2->bindParam(':Patient_ID',    $id,  PDO::PARAM_INT);
+    $stmt2->execute();
+    $results = $stmt2->fetch();
+    $FamilyDoctor = $results['doctors_Doctor_ID'];
+
+    //if the patient has a doctor
+    if($FamilyDoctor){
+        $stmt2 = $connexion->prepare('SELECT Name FROM doctors WHERE Doctor_ID = :Doctor_ID');
+        $stmt2->bindParam(':Doctor_ID',    $FamilyDoctor,  PDO::PARAM_INT);
+        $stmt2->execute();
+        $results = $stmt2->fetch();
+        $FamilyDoctor = $results['Name'];
+    }
+    else{
+        //we make sure doctor is equal to nothing if there is no doctor.
+        $FamilyDoctor="";
+    }
 
 ?>
 
@@ -76,7 +96,7 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
     			<!-- nino regular expression -->
 
 				<p class="FDR"><label for="FDR"> Family Doctor</label></p>
-				<input type="text" name="FDR"  size="30" value="" id="FDR" tabindex="4" required=""  onkeyup="lookup(this.value);" onblur="fill();" />
+				<input type="text" name="FDR"  size="30" value="<?php echo $FamilyDoctor; ?>" id="FDR" tabindex="4" required=""  onkeyup="lookup(this.value);" onblur="fill();" />
 				<div class="lookupBox" id="lookup" style="display: none;">
 				<div class="list" id="autoList">
 					&nbsp;
@@ -125,7 +145,7 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
     <!--include the header-->
     <script> 
         $(function(){
-        $("#header").load("header.html"); 
+        $("#header").load("mainheader.html"); 
         });
     </script> 
     <!-- verify the password -->

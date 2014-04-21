@@ -67,8 +67,11 @@ if (isset($_POST['submit'])) {
         #print_r($stmt->errorInfo());
     };
 
+    header("location: main.php");
 
-
+}
+else{
+     header("location: index.php");
 }
 
 ?>

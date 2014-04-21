@@ -56,8 +56,6 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
 			};   
         }	
 
-        echo $password;
-
 
         //update informations.
 	    try {
@@ -113,7 +111,6 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
 
         //then we can update the patients doctors in the table Doctors_has_patients.
         try{
-        	echo "8";
         	 $stmt4 = $connexion->prepare('INSERT INTO doctors_has_patients(
         	doctors_Doctor_ID,
         	patients_Patient_ID)
@@ -130,7 +127,10 @@ if (isset($_SESSION['id']) AND isset($_SESSION['email']))
 			print_r($stmt4->errorInfo());
         };
 
+        header("location: information.php");
+
 	}
+
 }
 //no session = redirection.
 else{
